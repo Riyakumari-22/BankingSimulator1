@@ -24,3 +24,33 @@ It simulates core banking operations such as account management, transactions, a
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/your-username/your-repo-name.git
+
+    Configure MySQL database:
+
+        Create a database (e.g., banking_db)
+
+        Update application.properties with your database username and password
+
+    Import project in Eclipse or IntelliJ
+
+    Build the project using Maven
+
+mvn clean install
+
+Run the application
+
+    java -jar target/banking-simulator-backend.jar
+
+    The server will start on http://localhost:8080
+
+API Endpoints
+
+    /accounts – Manage bank accounts
+
+    /transactions – Perform transactions
+
+    /alerts – Retrieve alerts
+
+Contribution
+
+Feel free to fork the repository and create pull requests. Issues and suggestions are welcome.
