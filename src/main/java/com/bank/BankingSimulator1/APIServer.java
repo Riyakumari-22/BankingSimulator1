@@ -22,14 +22,21 @@ public class APIServer {
     	AlertService alertService=new AlertService(new BigDecimal("1000"));
     	TransactionService trxService=new TransactionService(accService,trxRepo,alertService);
     	System.out.println("Spark Server started on port number 8080");
-    	//createAccount
+    	//createAccount API
     	post("/accounts/create",(req,res)->{
-    		System.out.println("/accounts/create  API is called");
+    		System.out.println("/accounts/create  API is called..");
     		res.type("application/json");
     		AccountRequest data=gson.fromJson(req.body(),AccountRequest.class);
     		Account acc=accService.createAccount(data.Name,data.Email,data.Balance);
     		return gson.toJson(acc);
     		
+    	});
+    	//deposit API
+    	post("/Transactions/Deposit",(req,res) ->{
+    		System.out.println("/Transactions/Deposit API is called..");
+    	TrxRequest data=gson.fromJson(req.body(),TrxRequest.class);
+    	trxService.Deposit(data. accNo, data.Amount);
+    	return "Deposit Successful..!!";
     	});
  
     }
@@ -51,6 +58,9 @@ public class APIServer {
 		String  Name ;
 		String Email ;
 		BigDecimal Balance;
-		
+	}
+	static class TrxRequest{
+		String  accNo;
+		BigDecimal Amount;
 	}
 }
