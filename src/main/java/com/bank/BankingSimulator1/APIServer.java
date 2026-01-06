@@ -35,10 +35,23 @@ public class APIServer {
     	post("/Transactions/Deposit",(req,res) ->{
     		System.out.println("/Transactions/Deposit API is called..");
     	TrxRequest data=gson.fromJson(req.body(),TrxRequest.class);
-    	trxService.Deposit(data. accNo, data.Amount);
+    	trxService.Deposit(data.accNo, data.Amount);
     	return "Deposit Successful..!!";
     	});
- 
+    	//withdraw API
+    	post("/Transactions/withDraw",(req,res) ->{
+    		System.out.println("/Transactions/withDraw API is called..");
+    	TrxRequest data=gson.fromJson(req.body(),TrxRequest.class);
+    	trxService.withDraw(data.accNo, data.Amount);
+    	return "withDraw Successful..!!";
+    	});
+       // transfer API
+    	post("/Transactions/transfer",(req,res)->{
+    	System.out.println("/Transactions/transfer API is called...");
+    	TransferRequest data=gson.fromJson(req.body(),TransferRequest.class);
+    	trxService.Transfer(data.Sender_accNo, data.Reciever_accNo, data.Amount);
+    	return "Transfer successful...!!";
+    	});
     }
     public static void enableCORS(){
     	options("/*",(request,response)->{
@@ -63,4 +76,10 @@ public class APIServer {
 		String  accNo;
 		BigDecimal Amount;
 	}
+	static class TransferRequest{
+		String Sender_accNo;
+		String Reciever_accNo;
+		BigDecimal Amount;
+	}
+
 }
