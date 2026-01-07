@@ -52,7 +52,28 @@ public class APIServer {
     	trxService.Transfer(data.Sender_accNo, data.Reciever_accNo, data.Amount);
     	return "Transfer successful...!!";
     	});
+    	get("/accounts/all",(req,res)->{
+    		System.out.println("/accounts/all API is called...");
+    		res.type("application/json");
+    		return gson.toJson(accService.listAll());
+    	});
+    
+    	//view account API
+    	get("/accounts/:acc",(req,res)->{
+    		System.out.println("/accounts/:acc API is called...");
+    		res.type("application/json");
+    		String accNo=req.params("acc");
+    		try {
+    		Account account=accService.getAccount(accNo);
+    		return gson.toJson(account);
+    		}catch(Exception e) {
+    			res.status(404);
+    			return gson.toJson("Account not found");
+    		}
+    	});
+    	//viewAll account API
     }
+    	
     public static void enableCORS(){
     	options("/*",(request,response)->{
     		String reqheaders=request.headers("Access-Control-Headers");
