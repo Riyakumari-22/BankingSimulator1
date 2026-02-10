@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class FileReportUtil {
 private static final String REPORT_FOLDER="Records";
-private static final String REPORT_FILE=REPORT_FOLDER+"/transaction_reports.txt";
+private static final String REPORT_FILE=REPORT_FOLDER+"/transaction_report.txt";
 static {
 	File folder=new File(REPORT_FOLDER);
 	if(!folder.exists()) {

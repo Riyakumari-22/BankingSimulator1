@@ -1,0 +1,10 @@
+DEPOSITE | Acc: 1000000 | Amount: 500
+WITHDRAW | Acc: 1000000 | Amount: 700
+WITHDRAW | Acc: 1000000 | Amount: 700
+TRANSFER | FromAcc: 1000001 | ToAccount: 1000000 | Amount 200
+TRANSFER | FromAcc: 1000001 | ToAccount: 1000000 | Amount 200
+TRANSFER | FromAcc: 1000001 | ToAccount: 1000000 | Amount 200
+TRANSFER | FromAcc: 1000001 | ToAccount: 1000000 | Amount 200
+TRANSFER | FromAcc: 1000001 | ToAccount: 1000000 | Amount 200
+DEPOSITE | Acc: 1000000 | Amount: 2000
+WITHDRAW | Acc: 1000000 | Amount: 1500
